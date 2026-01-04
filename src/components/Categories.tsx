@@ -61,7 +61,9 @@ const Categories = () => {
   const selectcategory = searchParams.get("category");
 
   const handelChange = (value: string | null) => {
-    router.push(`${pathname}?category=${value}`);
+    const params = new URLSearchParams(searchParams);
+    params.set("category", value || "all");
+    router.push(`${pathname}?${params.toString()}`, { scroll: false });
   };
 
   return (
