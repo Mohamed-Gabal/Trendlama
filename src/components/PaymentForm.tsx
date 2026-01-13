@@ -3,6 +3,7 @@ import { ArrowRight, ShoppingCart } from "lucide-react";
 import { useRouter } from "next/navigation";
 import { SubmitHandler, useForm } from "react-hook-form";
 import { paymentFormSchema, PaymentFormInputs } from "@/types";
+import Image from "next/image";
 
 const PaymentForm = () => {
   const {
@@ -96,6 +97,12 @@ const PaymentForm = () => {
         {errors.cvv && (
           <p className="text-xs text-red-500">{errors.cvv.message}</p>
         )}
+      </div>
+
+      <div className="flex items-center gap-2 mt-4">
+        <Image src="/klarna.png" alt="klarna" width={50} height={50} className="rounded-md"/>
+        <Image src="/cards.png" alt="cards" width={50} height={50} className="rounded-md"/>
+        <Image src="/stripe.png" alt="stripe" width={50} height={50} className="rounded-md"/>
       </div>
 
       <button
